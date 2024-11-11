@@ -1,11 +1,10 @@
+import "@/styles/globals.css";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "@/styles/globals.css";
 
 //fontawesome import next
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
-import Header from "./components/Header";
 config.autoAddCss = false;
 
 const geistSans = localFont({
@@ -21,7 +20,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Spin Wheel",
-  description: "Spin Wheel",  
+  description: "Spin Wheel",
 };
 
 export default function RootLayout({
@@ -33,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} mainContainer`}
-      >        
+      >
         <main>{children}</main>
       </body>
     </html>
