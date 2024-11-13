@@ -46,3 +46,10 @@ a {
   right: 0;
   position: absolute;
 }
+
+.containerTable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

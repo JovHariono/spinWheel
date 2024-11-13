@@ -23,10 +23,12 @@ const Header = () => {
         </Modal.Header>
         <Modal.Body>
           <Form>
+
             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
               <Form.Label>Jumlah Pemenang</Form.Label>
               <Form.Control type="number" placeholder="Jumlah Pemenang" min={1}/>
             </Form.Group>
+            
             <Form.Group
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
