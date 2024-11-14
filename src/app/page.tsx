@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button, Table } from "react-bootstrap";
 
-const ListNama = () => {
+const Home = () => {
   
   const data = [
     { id: 1, nama: "lalala" },
@@ -45,9 +45,9 @@ const ListNama = () => {
         <tbody>{generateTable()}</tbody>
       </Table>
       
-      <Link href="/spin-wheel" className="btn btn-primary" >Spin Now</Link>
+      <Link href="/spin-wheel" className="btn btn-primary" >Go</Link>
     </div>
   );
 };
 
-export default ListNama;
+export default Home;
