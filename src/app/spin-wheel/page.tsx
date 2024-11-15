@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import styles from "../page.module.css";
 import { Button, Form } from "react-bootstrap";
 import Header from "../components/Header";
 import { useEffect, useState } from "react";
 import { FormData } from "../type";
+import componentSpin from "@/../public/assets/components/spinImg.png";
 
 export default function SpinWheel() {
   const [formData, setFormData] = useState<FormData>({
@@ -13,40 +13,57 @@ export default function SpinWheel() {
     hadiah: "",
   });
 
-  const [image, setImage] = useState("/next.svg")
+  const [image, setImage] = useState("/assets/components/logoParagon.png");
 
   useEffect(() => {
     switch (formData.hadiah) {
       case "1":
-        setImage("/assets/lambo.png")
+        setImage("/assets/lambo.png");
         break;
       case "2":
-        setImage("/assets/avanza.png")
+        setImage("/assets/avanza.png");
         break;
       case "3":
-        setImage("/assets/kerupuk.png")
+        setImage("/assets/kerupuk.png");
         break;
-    
+
       default:
-        setImage("/next.svg")
+        setImage("/assets/components/logoParagon.png");
         break;
     }
   }, [formData.hadiah]);
 
   return (
-    <div>
+    <div className="divSpinWheel">
       <Header formData={formData} setFormData={setFormData} />
       <main>
-        <div>
-          <p>Jumlah Pemenang: {formData.jumlahPemenang}</p>
-          <p>Pilihan Hadiah: {formData.hadiah}</p>
-        </div>
-        <div className={styles.container}>
-          <Image alt="" src={image} width={180} height={32} />
+        <div className="containerMainComponent">
+          <Image
+            alt=""
+            src={image}
+            className="imageHadiah"
+            width={300}
+            height={50}
+            objectFit="contain"
+          />
 
-          <Form.Control as="textarea" placeholder="Nama Pemenang" />
+          {parseInt(formData.jumlahPemenang) > 2 ? (
+            <Form.Control
+              className="textAreaB"
+              as="textarea"
+              placeholder="Nama Pemenang"
+            />
+          ) : (
+            <Form.Control
+              className="textArea"
+              as="textarea"
+              placeholder="Nama Pemenang"
+            />
+          )}
 
-          <Button>SPIN</Button>
+          <Button variant="link">
+            <Image alt="" src={componentSpin} width={150} />
+          </Button>
         </div>
       </main>
     </div>

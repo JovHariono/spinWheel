@@ -1,5 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button, Table } from "react-bootstrap";
+
+import componentNext from "../../public/assets/components/nextImg.png"
 
 const Home = () => {
   
@@ -45,7 +48,9 @@ const Home = () => {
         <tbody>{generateTable()}</tbody>
       </Table>
       
-      <Link href="/spin-wheel" className="btn btn-primary" >Go</Link>
+      <Link href="/spin-wheel" className="" >
+      <Image className="imageNext" alt="" src={componentNext} width={200} />
+      </Link>
     </div>
   );
 };
