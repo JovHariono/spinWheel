@@ -1,7 +1,7 @@
 "use client";
 
 import componentSpin from "@/../public/assets/components/spinImg.png";
-import axios from 'axios';
+import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
@@ -25,13 +25,44 @@ export default function SpinWheel() {
   useEffect(() => {
     switch (formData.hadiah) {
       case "1":
-        setImage("/assets/lambo.png");
+        setImage("/assets/doorPrizeKecil/headphone.png");
         break;
       case "2":
-        setImage("/assets/avanza.png");
+        setImage("/assets/doorPrizeKecil/emasAntam.png");
         break;
       case "3":
-        setImage("/assets/kerupuk.png");
+        setImage("/assets/doorPrizeKecil/komporListrik.png");
+        break;
+      case "4":
+        setImage("/assets/doorPrizeKecil/riceCooker.png");
+        break;
+      case "5":
+        setImage("/assets/doorPrizeKecil/airFryer.png");
+        break;
+      case "6":
+        setImage("/assets/doorPrizeKecil/tumbler.png");
+        break;
+
+      case "7":
+        setImage("/assets/doorPrizeBesar/handphone.png");
+        break;
+      case "8":
+        setImage("/assets/doorPrizeBesar/mesinCuci.png");
+        break;
+      case "9":
+        setImage("/assets/doorPrizeBesar/tv.png");
+        break;
+      case "10":
+        setImage("/assets/doorPrizeBesar/emasAntam1.png");
+        break;
+      case "11":
+        setImage("/assets/doorPrizeBesar/airCooler.png");
+        break;
+      case "12":
+        setImage("/assets/doorPrizeBesar/airFryer.png");
+        break;
+      case "13":
+        setImage("/assets/doorPrizeBesar/sepedaLipat.png");
         break;
 
       default:
@@ -82,21 +113,25 @@ export default function SpinWheel() {
             setTimeout(() => {
               setChoosen(next);
               bjir?.classList.remove("lineUp");
-              setWinners(oldArray => [...oldArray, next]);
-              axios.post(
-                "https://sodfestival.store/api/data2",
-                {
-                  nama: `${next.id} - ${next.nama} - ${formData.hadiah}`
-                },
-                {
-                  headers: { "Content-Type": "application/json" },
-                }
-              ).then(() => {
-                axios.delete(`https://sodfestival.store/api/data1/${next.id}`)
-              });
+              setWinners((oldArray) => [...oldArray, next]);
+              axios
+                .post(
+                  "https://sodfestival.store/api/data2",
+                  {
+                    nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
+                  },
+                  {
+                    headers: { "Content-Type": "application/json" },
+                  }
+                )
+                .then(() => {
+                  axios.delete(
+                    `https://sodfestival.store/api/data1/${next.id}`
+                  );
+                });
               setTimeout(() => {
                 spin(count + 1);
-              }, 3000)
+              }, 3000);
             }, 1000);
           }, 1000);
         }, 1000);
@@ -129,7 +164,7 @@ export default function SpinWheel() {
           />
 
           <div className="winners">
-            {winners.map(winner => (
+            {winners.map((winner) => (
               <div key={`winner-${winner.id}`}>
                 <span>{winner.nama}</span>
                 <br />

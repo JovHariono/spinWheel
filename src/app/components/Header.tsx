@@ -69,9 +69,20 @@ const Header: React.FunctionComponent<HeaderProps> = ({
                 }
               >
                 <option key={0} value="">Open this select menu</option>
-                <option key={1} value="1">example 1</option>
-                <option key={2} value="2">example 2</option>
-                <option key={3} value="3">example 3</option>
+                <option key={1} value="1">Headphone</option>
+                <option key={2} value="2">Emas Antam 0.5gr</option>
+                <option key={3} value="3">Kompor Listrik</option>
+                <option key={4} value="4">Rice Cooker</option>
+                <option key={5} value="5">Air Fryer - Kecil</option>
+                <option key={6} value="6">Tumbler</option>
+
+                <option key={7} value="7">Handphone</option>
+                <option key={8} value="8">Mesin Cuci</option>
+                <option key={9} value="9">TV 32inch</option>
+                <option key={10} value="10">Emas Antam 1gr</option>
+                <option key={11} value="11">Air Cooler</option>
+                <option key={12} value="12">Air Fryer</option>
+                <option key={13} value="13">Sepeda Lipat</option>
               </Form.Select>
             </Form.Group>
           </Form>
