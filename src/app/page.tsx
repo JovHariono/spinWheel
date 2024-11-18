@@ -18,12 +18,10 @@ const Home = () => {
 
   useEffect(() => {
     if (!isLoaded) {
-      var dataLength = 0;
       axios
         .get(`http://localhost:3001/data1?_sort=id&_order=asc`)
         .then((res) => {
           setData(res.data);
-          dataLength = res.data.length;
           setIsLoaded(true);
         })
         .catch((err) => console.log(err));
@@ -34,7 +32,6 @@ const Home = () => {
     setTimeout(() => {
       if (data.length > 0) {
         if ((100 * (iter + 1)) < data.length) {
-          console.log("sini")
           setIter(prevIter => prevIter + 1);
         } else {
           setIter(0);

@@ -21,7 +21,6 @@ const Header: React.FunctionComponent<HeaderProps> = ({
   const closeHandler = () => setVisible(false);
 
   const handleSubmit = () => {
-    console.log(formData);
     setVisible(false);
   };
 
@@ -69,10 +68,10 @@ const Header: React.FunctionComponent<HeaderProps> = ({
                   setFormData((prev) => ({ ...prev, hadiah: e.target.value }))
                 }
               >
-                <option value="">Open this select menu</option>
-                <option value="1">example 1</option>
-                <option value="2">example 2</option>
-                <option value="3">example 3</option>
+                <option key={0} value="">Open this select menu</option>
+                <option key={1} value="1">example 1</option>
+                <option key={2} value="2">example 2</option>
+                <option key={3} value="3">example 3</option>
               </Form.Select>
             </Form.Group>
           </Form>
