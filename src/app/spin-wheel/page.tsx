@@ -52,7 +52,7 @@ export default function SpinWheel() {
   useEffect(() => {
     if (!isLoaded) {
       axios
-        .get(`http://localhost:3001/data1?_sort=id&_order=asc`)
+        .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
         .then((res) => {
           setData(res.data);
           setIsLoaded(true);
@@ -84,7 +84,7 @@ export default function SpinWheel() {
               bjir?.classList.remove("lineUp");
               setWinners(oldArray => [...oldArray, next]);
               axios.post(
-                "http://localhost:3001/data2",
+                "https://sodfestival.store/api/data2",
                 {
                   nama: `${next.id} - ${next.nama} - ${formData.hadiah}`
                 },
@@ -92,7 +92,7 @@ export default function SpinWheel() {
                   headers: { "Content-Type": "application/json" },
                 }
               ).then(() => {
-                axios.delete(`http://localhost:3001/data1/${next.id}`)
+                axios.delete(`https://sodfestival.store/api/data1/${next.id}`)
               });
               setTimeout(() => {
                 spin(count + 1);
@@ -104,7 +104,7 @@ export default function SpinWheel() {
     } else {
       if (!isLoaded) {
         axios
-          .get(`http://localhost:3001/data1?_sort=id&_order=asc`)
+          .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
           .then((res) => {
             setData(res.data);
             setIsLoaded(true);

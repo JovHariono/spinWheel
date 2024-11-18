@@ -20,13 +20,13 @@ export default function ListAll() {
   useEffect(() => {
     if (!isLoaded) {
       axios
-        .get(`http://localhost:3001/data2?_sort=id&_order=desc`)
+        .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
         .then((res) => setData(res.data))
         .catch((err) => console.log(err));
       setIsLoaded(true);
       setInterval(() => {
         axios
-          .get(`http://localhost:3001/data2?_sort=id&_order=desc`)
+          .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
       })
@@ -39,7 +39,7 @@ export default function ListAll() {
     if (deleteKataAll) {
       data.forEach((data) => {
         axios
-          .delete(`http://localhost:3001/data2/${data.id}`)
+          .delete(`https://sodfestival.store/api/data2/${data.id}`)
           .catch((err) => console.log(err));
       });
       alert("berhasil delete data");
@@ -51,7 +51,7 @@ export default function ListAll() {
 
     if (deleteKata) {
       axios
-        .delete(`http://localhost:3001/data2/${id}`)
+        .delete(`https://sodfestival.store/api/data2/${id}`)
         .catch((err) => console.log(err));
     }
   };
