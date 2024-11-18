@@ -179,6 +179,17 @@ main {
 
 .winners {
   position: fixed;
-  left: 20%;
+  left: 15%;
   top: 20%;
+  font-family: "chillax";
+}
+
+.wiener {
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+  text-align: center;
+  background-color: #3d7bff;
+  color: wheat;
 }
