@@ -109,12 +109,14 @@ main {
 }
 
 .textArea {
+  display: flex;
   background-color: #3d7bff;
   background: linear-gradient(#3d7bff 0%, #3d7bff 50%, #75a1ff 100%);
   border-radius: 3rem;
   width: 40%;
   height: 25%;
   text-align: center;
+  justify-content: center;
   align-items: center;
   font-size: 2rem;
   border: solid black 2px;
@@ -136,4 +138,31 @@ main {
   box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
+}
+
+.lineUp {
+  animation: 1s anim-lineUp ease-out infinite;
+}
+@keyframes anim-lineUp {
+  0% {
+    opacity: 0;
+    transform: translateY(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.winners {
+  position: fixed;
+  left: 20%;
+  top: 20%;
 }

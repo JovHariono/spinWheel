@@ -1,34 +1,53 @@
+"use client";
+import axios from 'axios';
 import Image from "next/image";
 import Link from "next/link";
-import { Button, Table } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import componentNext from "../../public/assets/components/nextImg.png";
 
-import componentNext from "../../public/assets/components/nextImg.png"
+export interface Struct {
+  id: Number;
+  nama: string;
+}
 
 const Home = () => {
-  
-  const data = [
-    { id: 1, nama: "lalala" },
-    { id: 2, nama: "bababa" },
-    { id: 3, nama: "jejeje" },
-    { id: 4, nama: "wawa" },
-    { id: 5, nama: "bebe" },
-    { id: 6, nama: "lele" },
-    { id: 7, nama: "jiji" },
-    { id: 8, nama: "gigi" },
-    { id: 9, nama: "haha" },
-    { id: 10, nama: "mimi" },
-    { id: 11, nama: "waaw" },
-    { id: 12, nama: "wooo" },
-  ];
-  
-  const generateTable = () => {
+  const [data, setData] = useState<Struct[]>([]);
+  const [iter, setIter] = useState<number>(0);
+  const [isLoaded, setIsLoaded] = useState(Boolean);
+
+  useEffect(() => {
+    if (!isLoaded) {
+      axios
+        .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
+        .then((res) => {
+          setData(res.data);
+          setIsLoaded(true);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      if (data.length > 0) {
+        if ((100 * (iter + 1)) < data.length) {
+          setIter(prevIter => prevIter + 1);
+        } else {
+          setIter(0);
+        }
+      }
+    }, 5000);
+  }, [data, iter]);
+
+  const generateTable = (iter: number) => {
     const rows = [];
-    let cellIndex = 0;
+    let cellIndex = 100 * iter;
 
     for (let i = 0; i < 10; i++) {
       const cells = [];
       for (let j = 0; j < 10; j++) {
-        
+
         const cellData = data[cellIndex] || { id: "", nama: "" };
         cells.push(
           <td key={j}>
@@ -44,12 +63,14 @@ const Home = () => {
 
   return (
     <div className="containerTable">
-      <Table bordered>
-        <tbody>{generateTable()}</tbody>
-      </Table>
-      
+      {isLoaded && (
+        <Table bordered>
+          <tbody>{generateTable(iter)}</tbody>
+        </Table>
+      )}
+
       <Link href="/spin-wheel" className="" >
-      <Image className="imageNext" alt="" src={componentNext} width={200} />
+        <Image className="imageNext" alt="" src={componentNext} width={200} />
       </Link>
     </div>
   );
