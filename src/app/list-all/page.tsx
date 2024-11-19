@@ -46,7 +46,7 @@ export default function ListAll() {
     }
   };
 
-  const handleDelete = (id: any) => {
+  const handleDelete = (id: number) => {
     const deleteKata = window.confirm("Are you sure want to delete?");
 
     if (deleteKata) {
