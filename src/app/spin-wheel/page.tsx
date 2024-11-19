@@ -171,7 +171,7 @@ export default function SpinWheel() {
 
           {winners.length !== 0 && (
             <div className={`winners ${showWinners ? "show" : ""}`}>
-              <p>{formData.hadiah} :</p>
+              <p>Pemenang : </p>
               {winners.map((winner) => (
                 <div key={`winner-${winner.id}`}>
                   <p>{winner.nama}</p>
