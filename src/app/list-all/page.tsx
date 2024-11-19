@@ -29,7 +29,7 @@ export default function ListAll() {
           .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
-      })
+      });
     }
   }, [isLoaded]);
 
@@ -55,6 +55,14 @@ export default function ListAll() {
         .catch((err) => console.log(err));
     }
   };
+
+  useEffect(() => {
+    document.body.style.backgroundImage = "none";
+
+    return () => {
+      document.body.style.backgroundImage = "";
+    };
+  }, []);
 
   return (
     <>
@@ -85,4 +93,4 @@ export default function ListAll() {
       </div>
     </>
   );
-};
+}
