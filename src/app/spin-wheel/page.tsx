@@ -158,8 +158,8 @@ export default function SpinWheel() {
             alt=""
             src={image}
             className="imageHadiah"
-            width={300}
-            height={50}
+            width={600}
+            height={400}
             objectFit="contain"
           />
 

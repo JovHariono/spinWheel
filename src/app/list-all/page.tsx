@@ -57,7 +57,7 @@ export default function ListAll() {
   };
 
   useEffect(() => {
-    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundImage = "none";    
 
     return () => {
       document.body.style.backgroundImage = "";
