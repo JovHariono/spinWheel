@@ -98,7 +98,7 @@ export default function SpinWheel() {
     }
     if (count <= Number(formData.jumlahPemenang)) {
       setShowBtn(false);
-      let bjir = document.getElementById("bjir");
+      const bjir = document.getElementById("bjir");
       bjir?.classList.add("lineUp");
       let next = data[Math.floor(Math.random() * data.length)];
       setTimeout(() => {
