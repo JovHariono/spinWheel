@@ -31,7 +31,7 @@ export default function ListAll() {
           .catch((err) => console.log(err));
       })
     }
-  }, []);
+  }, [isLoaded]);
 
   const handleDeleteAll = () => {
     const deleteKataAll = window.confirm("Are you sure want to delete all?");
