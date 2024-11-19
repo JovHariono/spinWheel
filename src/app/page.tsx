@@ -14,7 +14,7 @@ export interface Struct {
 const Home = () => {
   const [data, setData] = useState<Struct[]>([]);
   const [iter, setIter] = useState<number>(0);
-  const [isLoaded, setIsLoaded] = useState(Boolean);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     if (!isLoaded) {
@@ -26,7 +26,7 @@ const Home = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [isLoaded]);
 
   useEffect(() => {
     setTimeout(() => {

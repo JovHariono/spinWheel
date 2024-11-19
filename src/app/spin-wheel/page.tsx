@@ -20,7 +20,7 @@ export default function SpinWheel() {
   });
 
   const [image, setImage] = useState("/assets/components/logoParagon.png");
-  const [showBtn, setShowBtn] = useState<Boolean>(false);
+  const [showBtn, setShowBtn] = useState<boolean>(false);
 
   useEffect(() => {
     switch (formData.hadiah) {
