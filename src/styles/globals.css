@@ -188,10 +188,13 @@ main {
   border-radius: 2rem;
   color: aliceblue;
   background-color: #3d7bff;
+  width: auto;
+  height: 20rem;
 
-  transform: scale(0.8);
+
+  transform: scale(0.5);
   opacity: 0;
-  transition: transform 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
 }
 
 .winners.show {
@@ -199,11 +202,11 @@ main {
   opacity: 1;
 }
 
-.kataWinnerWrapper {
+/* .kataWinnerWrapper {
   overflow: hidden;
-}
+} */
 
-.kataWinner {
+/* .kataWinner {
   opacity: 1;
   transform: translateY(20px);
   transition: opacity 1s ease-in-out, transform 1s ease-in-out;
@@ -212,7 +215,7 @@ main {
 .kataWinner.show {
   opacity: 1;
   transform: translateY(0);
-}
+} */
 
 /* .wiener {
   border: 1px solid black;
