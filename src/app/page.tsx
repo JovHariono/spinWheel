@@ -7,7 +7,7 @@ import { Table } from "react-bootstrap";
 import componentNext from "../../public/assets/components/nextImg.png";
 
 export interface Struct {
-  id: Number;
+  id: number;
   nama: string;
 }
 

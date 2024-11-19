@@ -9,7 +9,7 @@ import Header from "../components/Header";
 import { FormData } from "../type";
 
 export interface Struct {
-  id: Number;
+  id: number;
   nama: string;
 }
 
@@ -162,17 +162,15 @@ export default function SpinWheel() {
             height={50}
             objectFit="contain"
           />
-          {winners.length > 0 && (
-            <div className="winners">
-              <h3>Congratulation!</h3>
-              {winners.map((winner) => (
-                <div key={`winner-${winner.id}`} className="wiener">
-                  <span>{winner.nama}</span>
-                  <br />
-                </div>
-              ))}
-            </div>
-          )}
+
+          <div className="winners">
+            {winners.map((winner) => (
+              <div key={`winner-${winner.id}`}>
+                <span>{winner.nama}</span>
+                <br />
+              </div>
+            ))}
+          </div>
 
           <div className="textArea">
             <span id="bjir">{choosen?.nama}</span>

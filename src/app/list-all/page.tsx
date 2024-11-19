@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export interface Struct {
-  id: Number;
+  id: number;
   nama: string;
 }
 
