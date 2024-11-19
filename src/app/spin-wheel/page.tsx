@@ -26,7 +26,7 @@ export default function SpinWheel() {
   const [data, setData] = useState<Struct[]>([]);
   const [isLoaded, setIsLoaded] = useState(Boolean);
   const [winners, setWinners] = useState<Struct[]>([]);
-  const [showWinners, setShowWinners] = useState(false); // Track visibility
+  const [showWinners, setShowWinners] = useState(false);
 
   useEffect(() => {
     switch (formData.hadiah) {
@@ -94,7 +94,7 @@ export default function SpinWheel() {
   useEffect(() => {
     setWinners([]);
     setChoosen({ id: 0, nama: "" });
-    setShowWinners(false); // Reset visibility
+    setShowWinners(false);
   }, [formData.hadiah]);
 
   const spin = (count: number) => {
@@ -135,7 +135,7 @@ export default function SpinWheel() {
                   );
                 });
               setTimeout(() => {
-                setShowWinners(true); // Show winners smoothly
+                setShowWinners(true);
                 spin(count + 1);
               }, 3000);
             }, 1000);
