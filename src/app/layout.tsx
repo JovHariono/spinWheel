@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} bodyContainer`}
+        className={`${geistSans.variable} ${geistMono.variable} bodyContainer listHolder`}
       >
         <main>{children}</main>
       </body>

@@ -81,19 +81,19 @@ main {
 }
 
 .containerTable table {
-  min-width: 200px ;
+  min-width: 200px;
   width: 100%;
   border: none;
   border-collapse: collapse;
-  font-size: 1.2rem;  
+  font-size: 1.2rem;
   text-align: center;
 }
 
-.containerTable table td, 
+.containerTable table td,
 .containerTable table tr {
   border: none;
   padding: 8px;
-  background-color: #75a1ff;  
+  background-color: #75a1ff;
 }
 
 /* spin-wheel */
@@ -108,7 +108,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-top: 4rem;
+  padding-top: 7rem;
   width: 100%;
 }
 
@@ -179,12 +179,42 @@ main {
 
 .winners {
   position: fixed;
-  left: 15%;
-  top: 20%;
+  left: 10%;
+  top: 17%;
   font-family: "chillax";
+  font-size: 2rem;  
+  border: solid 4px black;
+  padding: 2rem;
+  border-radius: 2rem;
+  color: aliceblue;
+  background-color: #3d7bff;
+
+  transform: scale(0.8);
+  opacity: 0;
+  transition: transform 1s ease-in-out;
 }
 
-.wiener {
+.winners.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.kataWinnerWrapper {
+  overflow: hidden;
+}
+
+.kataWinner {
+  opacity: 1;
+  transform: translateY(20px);
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.kataWinner.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .wiener {
   border: 1px solid black;
   padding: 5px;
   border-radius: 10px;
@@ -192,4 +222,10 @@ main {
   text-align: center;
   background-color: #3d7bff;
   color: wheat;
+} */
+
+/* list-all */
+.container {
+  overflow-y: auto;
+  width: 100vw;
 }

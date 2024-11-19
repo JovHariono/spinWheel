@@ -10,7 +10,7 @@ export interface Struct {
 
 export default function ListAll() {
   const [data, setData] = useState<Struct[]>([]);
-  const [isLoaded, setIsLoaded] = useState(Boolean);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [itemsToShow, setItemsToShow] = useState(15);
 
   const handleShowMore = () => {
@@ -21,15 +21,17 @@ export default function ListAll() {
     if (!isLoaded) {
       axios
         .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
-        .then((res) => setData(res.data))
+        .then((res) => {
+          setData(res.data)})
         .catch((err) => console.log(err));
       setIsLoaded(true);
+
       setInterval(() => {
         axios
           .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
-      });
+      }, 5000);
     }
   }, [isLoaded]);
 
@@ -57,7 +59,7 @@ export default function ListAll() {
   };
 
   useEffect(() => {
-    document.body.style.backgroundImage = "none";    
+    document.body.style.backgroundImage = "none";
 
     return () => {
       document.body.style.backgroundImage = "";
@@ -72,12 +74,23 @@ export default function ListAll() {
           <div className="list-holder">
             <h2>Winners</h2>
             <button onClick={() => handleDeleteAll()}>Delete All Data</button>
-            <div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                paddingTop: "1rem",
+              }}
+            >
               {data.slice(0, itemsToShow).map((data) => (
-                <div className="data-item" key={String(data.id)}>
+                <div
+                  style={{ display: "flex", gap: "1rem" }}
+                  className="data-item"
+                  key={String(data.id)}
+                >
                   {data.nama}
                   <button
-                    style={{ float: "right" }}
+                    // style={{ float: "right" }}
                     onClick={() => handleDelete(data.id)}
                   >
                     Delete

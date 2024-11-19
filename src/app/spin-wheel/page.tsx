@@ -1,9 +1,9 @@
-"use client";
+"use client"
 
+import React, { useEffect, useState } from "react";
 import componentSpin from "@/../public/assets/components/spinImg.png";
 import axios from "axios";
 import Image from "next/image";
-import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Header from "../components/Header";
 import { FormData } from "../type";
@@ -22,49 +22,53 @@ export default function SpinWheel() {
   const [image, setImage] = useState("/assets/components/logoParagon.png");
   const [showBtn, setShowBtn] = useState<boolean>(false);
 
+  const [choosen, setChoosen] = useState<Struct>();
+  const [data, setData] = useState<Struct[]>([]);
+  const [isLoaded, setIsLoaded] = useState(Boolean);
+  const [winners, setWinners] = useState<Struct[]>([]);
+  const [showWinners, setShowWinners] = useState(false); // Track visibility
+
   useEffect(() => {
     switch (formData.hadiah) {
-      case "1":
+      case "Headphone":
         setImage("/assets/doorPrizeKecil/headphone.png");
         break;
-      case "2":
+      case "Emas Antam 0.5gr":
         setImage("/assets/doorPrizeKecil/emasAntam.png");
         break;
-      case "3":
+      case "Kompor Listrik":
         setImage("/assets/doorPrizeKecil/komporListrik.png");
         break;
-      case "4":
+      case "Rice Cooker":
         setImage("/assets/doorPrizeKecil/riceCooker.png");
         break;
-      case "5":
+      case "Air Fryer - Kecil":
         setImage("/assets/doorPrizeKecil/airFryer.png");
         break;
-      case "6":
+      case "Tumbler":
         setImage("/assets/doorPrizeKecil/tumbler.png");
         break;
-
-      case "7":
+      case "Handphone":
         setImage("/assets/doorPrizeBesar/handphone.png");
         break;
-      case "8":
+      case "Mesin Cuci":
         setImage("/assets/doorPrizeBesar/mesinCuci.png");
         break;
-      case "9":
+      case "TV 32inch":
         setImage("/assets/doorPrizeBesar/tv.png");
         break;
-      case "10":
+      case "Emas Antam 1gr":
         setImage("/assets/doorPrizeBesar/emasAntam1.png");
         break;
-      case "11":
+      case "Air Cooler":
         setImage("/assets/doorPrizeBesar/airCooler.png");
         break;
-      case "12":
+      case "Air Fryer":
         setImage("/assets/doorPrizeBesar/airFryer.png");
         break;
-      case "13":
+      case "Sepeda Lipat":
         setImage("/assets/doorPrizeBesar/sepedaLipat.png");
         break;
-
       default:
         setImage("/assets/components/logoParagon.png");
         break;
@@ -74,11 +78,6 @@ export default function SpinWheel() {
       setShowBtn(true);
     }
   }, [formData]);
-
-  const [choosen, setChoosen] = useState<Struct>();
-  const [data, setData] = useState<Struct[]>([]);
-  const [isLoaded, setIsLoaded] = useState(Boolean);
-  const [winners, setWinners] = useState<Struct[]>([]);
 
   useEffect(() => {
     if (!isLoaded) {
@@ -91,6 +90,12 @@ export default function SpinWheel() {
         .catch((err) => console.log(err));
     }
   }, []);
+
+  useEffect(() => {
+    setWinners([]);
+    setChoosen({ id: 0, nama: "" });
+    setShowWinners(false); // Reset visibility
+  }, [formData.hadiah]);
 
   const spin = (count: number) => {
     if (count === 1) {
@@ -130,6 +135,7 @@ export default function SpinWheel() {
                   );
                 });
               setTimeout(() => {
+                setShowWinners(true); // Show winners smoothly
                 spin(count + 1);
               }, 3000);
             }, 1000);
@@ -163,14 +169,16 @@ export default function SpinWheel() {
             objectFit="contain"
           />
 
-          <div className="winners">
-            {winners.map((winner) => (
-              <div key={`winner-${winner.id}`}>
-                <span>{winner.nama}</span>
-                <br />
-              </div>
-            ))}
-          </div>
+          {winners.length !== 0 && (
+            <div className={`winners ${showWinners ? "show" : ""}`}>
+              <p>{formData.hadiah} :</p>
+              {winners.map((winner) => (
+                <div key={`winner-${winner.id}`}>
+                  <p>{winner.nama}</p>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div className="textArea">
             <span id="bjir">{choosen?.nama}</span>
