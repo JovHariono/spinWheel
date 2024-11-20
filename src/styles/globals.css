@@ -65,6 +65,15 @@ main {
   overflow: hidden;
 }
 
+.congretz {
+  background-image: url("../../public/assets/congratz.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  padding: 40px;
+}
+
 .header {
   top: 0;
   right: 0;
@@ -156,33 +165,12 @@ main {
   -moz-box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
 }
 
-.lineUp {
-  animation: 1s anim-lineUp ease-out infinite;
-}
-@keyframes anim-lineUp {
-  0% {
-    opacity: 0;
-    transform: translateY(80%);
-  }
-  20% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-
 .winners {
   position: fixed;
   left: 10%;
   top: 17%;
   font-family: "chillax";
-  font-size: 2rem;  
+  font-size: 2rem;
   border: solid 4px black;
   padding: 2rem;
   border-radius: 2rem;
@@ -231,4 +219,73 @@ main {
 .container {
   overflow-y: auto;
   width: 100vw;
+}
+
+.lineUp {
+  animation: 1s anim-lineUp ease-out infinite;
+  position: absolute;
+  top: auto;
+  left: auto;
+}
+
+@keyframes anim-lineUp {
+  0% {
+    opacity: 1;
+    transform: translateY(80%);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(60%);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(40%);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(20%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+.lineUp2 {
+  animation: 1s anim-lineUp2 ease-out infinite;
+}
+
+@keyframes anim-lineUp2 {
+  0% {
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-20%);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-40%);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translateY(-60%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(-80%);
+  }
 }

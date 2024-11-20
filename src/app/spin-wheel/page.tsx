@@ -1,7 +1,8 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import componentSpin from "@/../public/assets/components/spinImg.png";
+import congratz from "@/../public/assets/congratz.png";
 import axios from "axios";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
@@ -23,10 +24,19 @@ export default function SpinWheel() {
   const [showBtn, setShowBtn] = useState<boolean>(false);
 
   const [choosen, setChoosen] = useState<Struct>();
+  const [choosen2, setChoosen2] = useState<Struct>();
   const [data, setData] = useState<Struct[]>([]);
   const [isLoaded, setIsLoaded] = useState(Boolean);
   const [winners, setWinners] = useState<Struct[]>([]);
+  const [showCongratz, setShowCongratz] = useState<boolean>(false);
   const [showWinners, setShowWinners] = useState(false);
+  const audioRef = useRef<any>(null);
+
+  const playAudio = () => {
+    if (audioRef?.current) {
+      audioRef?.current.play();
+    }
+  };
 
   useEffect(() => {
     switch (formData.hadiah) {
@@ -97,47 +107,87 @@ export default function SpinWheel() {
     setShowWinners(false);
   }, [formData.hadiah]);
 
+  const randomNext = () => data[Math.floor(Math.random() * data.length)];
+
   const spin = (count: number) => {
     if (count === 1) {
       setWinners([]);
     }
     if (count <= Number(formData.jumlahPemenang)) {
+      setChoosen({ id: 0, nama: "" });
+      setShowCongratz(false);
+      playAudio();
       setShowBtn(false);
-      const bjir = document.getElementById("bjir");
-      bjir?.classList.add("lineUp");
-      let next = data[Math.floor(Math.random() * data.length)];
+      let next = randomNext();
       setTimeout(() => {
+        var bjir = document.getElementById("bjir");
+        bjir?.classList.add("lineUp");
+        var bjir2 = document.getElementById("bjir2");
+        bjir2?.classList.add("lineUp2");
         setChoosen(next);
-        next = data[Math.floor(Math.random() * data.length)];
+        setChoosen2({ id: 0, nama: "" });
+        let next2 = next;
+        next = randomNext();
         setTimeout(() => {
           setChoosen(next);
-          next = data[Math.floor(Math.random() * data.length)];
+          setChoosen2(next2);
+          next2 = next;
+          next = randomNext();
           setTimeout(() => {
             setChoosen(next);
-            next = data[Math.floor(Math.random() * data.length)];
+            setChoosen2(next2);
+            next2 = next;
+            next = randomNext();
             setTimeout(() => {
               setChoosen(next);
-              bjir?.classList.remove("lineUp");
-              setWinners((oldArray) => [...oldArray, next]);
-              axios
-                .post(
-                  "https://sodfestival.store/api/data2",
-                  {
-                    nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
-                  },
-                  {
-                    headers: { "Content-Type": "application/json" },
-                  }
-                )
-                .then(() => {
-                  // axios.delete(
-                  //   `https://sodfestival.store/api/data1/${next.id}`
-                  // );
-                });
+              setChoosen2(next2);
+              next2 = next;
+              next = randomNext();
               setTimeout(() => {
-                setShowWinners(true);
-                spin(count + 1);
-              }, 3000);
+                setChoosen(next);
+                setChoosen2(next2);
+                next2 = next;
+                next = randomNext();
+                setTimeout(() => {
+                  setChoosen(next);
+                  setChoosen2(next2);
+                  next2 = next;
+                  next = randomNext();
+                  setTimeout(() => {
+                    setChoosen(next);
+                    setChoosen2(next2);
+                    setTimeout(() => {
+                      setChoosen2({ id: 0, nama: "" });
+                      bjir = document.getElementById("bjir");
+                      bjir?.classList.remove("lineUp");
+                      bjir2 = document.getElementById("bjir2");
+                      bjir2?.classList.remove("lineUp2");
+                      setWinners((oldArray) => [...oldArray, next]);
+                      axios
+                        .post(
+                          "https://sodfestival.store/api/data2",
+                          {
+                            nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
+                          },
+                          {
+                            headers: { "Content-Type": "application/json" },
+                          }
+                        )
+                        .then(() => {
+                          // axios.delete(
+                          //   `https://sodfestival.store/api/data1/${next.id}`
+                          // );
+                        });
+                    }, 1000);
+                    setTimeout(() => {
+                      setShowBtn(true);
+                      setShowWinners(true);
+                      setShowCongratz(true);
+                      spin(count + 1);
+                    }, 3000);
+                  }, 1000);
+                }, 1000);
+              }, 1000);
             }, 1000);
           }, 1000);
         }, 1000);
@@ -155,21 +205,43 @@ export default function SpinWheel() {
     }
   };
 
+
   return (
     <div className="divSpinWheel">
       <Header formData={formData} setFormData={setFormData} />
       <main>
         <div className="containerMainComponent">
-          <Image
-            alt=""
-            src={image}
-            className="imageHadiah"
-            width={600}
-            height={400}
-            objectFit="contain"
-          />
+          <audio ref={audioRef} src='/assets/roll.mp3' />
+          {!showCongratz && (
+            <Image
+              alt=""
+              src={image}
+              className="imageHadiah"
+              width={600}
+              height={400}
+              objectFit="contain"
+            />
+          )}
 
-          {winners.length !== 0 && (
+          {showCongratz && (
+            <div className="congretz">
+              <h2>Congratulation!</h2>
+              {winners?.map((winner) => (
+                <div key={`winner-${winner.id}`}>
+                  <h3>{winner.nama}</h3>
+                </div>
+              ))}
+              <Image
+                alt=""
+                src={image}
+                className="imageHadiah"
+                width={450}
+                height={200}
+              />
+            </div>
+          )}
+
+          {winners.length !== 0 && !showCongratz && (
             <div className={`winners ${showWinners ? "show" : ""}`}>
               <p>Pemenang : </p>
               {winners.map((winner) => (
@@ -180,9 +252,12 @@ export default function SpinWheel() {
             </div>
           )}
 
-          <div className="textArea">
-            <span id="bjir">{choosen?.nama}</span>
-          </div>
+          {!showCongratz && (
+            <div className="textArea">
+              <span id="bjir">{choosen?.nama}</span>
+              <span id="bjir2">{choosen2?.nama}</span>
+            </div>
+          )}
 
           {showBtn && (
             <Button variant="link" onClick={() => spin(1)}>
