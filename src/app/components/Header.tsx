@@ -69,20 +69,20 @@ const Header: React.FunctionComponent<HeaderProps> = ({
                 }
               >
                 <option key={0} value="">Open this select menu</option>
-                <option key={1} value="Headphone">Headphone</option>
-                <option key={2} value="Emas Antam 0.5gr">Emas Antam 0.5gr</option>
+                {/* <option key={1} value="Headphone">Headphone</option> */}
+                <option key={1} value="Tumbler">Tumbler</option>
+                <option key={2} value="Rice Cooker">Rice Cooker</option>
                 <option key={3} value="Kompor Listrik">Kompor Listrik</option>
-                <option key={4} value="Rice Cooker">Rice Cooker</option>
-                <option key={5} value="Air Fryer - Kecil">Air Fryer - Kecil</option>
-                <option key={6} value="Tumbler">Tumbler</option>
+                <option key={4} value="Emas Antam 0.5gr">Emas Antam 0.5gr</option>
+                <option key={5} value="Air Fryer">Air Fryer</option>
 
-                <option key={7} value="Handphone">Handphone</option>
-                <option key={8} value="Mesin Cuci">Mesin Cuci</option>
+                <option key={6} value="Air Cooler">Air Cooler</option>
+                <option key={7} value="Emas Antam 1gr">Emas Antam 1gr</option>
+                <option key={8} value="Sepeda Lipat">Sepeda Lipat</option>
                 <option key={9} value="TV 32inch">TV 32inch</option>
-                <option key={10} value="Emas Antam 1gr">Emas Antam 1gr</option>
-                <option key={11} value="Air Cooler">Air Cooler</option>
-                <option key={12} value="Air Fryer">Air Fryer</option>
-                <option key={13} value="Sepeda Lipat">Sepeda Lipat</option>
+                <option key={10} value="Mesin Cuci">Mesin Cuci</option>
+                <option key={111} value="Handphone">Handphone</option>
+                {/* <option key={12} value="Air Fryer">Air Fryer</option> */}
               </Form.Select>
             </Form.Group>
           </Form>

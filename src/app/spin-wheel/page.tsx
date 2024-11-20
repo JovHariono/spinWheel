@@ -30,9 +30,9 @@ export default function SpinWheel() {
 
   useEffect(() => {
     switch (formData.hadiah) {
-      case "Headphone":
-        setImage("/assets/doorPrizeKecil/headphone.png");
-        break;
+      // case "Headphone":
+      //   setImage("/assets/doorPrizeKecil/headphone.png");
+      //   break;
       case "Emas Antam 0.5gr":
         setImage("/assets/doorPrizeKecil/emasAntam.png");
         break;
@@ -42,9 +42,9 @@ export default function SpinWheel() {
       case "Rice Cooker":
         setImage("/assets/doorPrizeKecil/riceCooker.png");
         break;
-      case "Air Fryer - Kecil":
-        setImage("/assets/doorPrizeKecil/airFryer.png");
-        break;
+      // case "Air Fryer - Kecil":
+      //   setImage("/assets/doorPrizeKecil/airFryer.png");
+      //   break;
       case "Tumbler":
         setImage("/assets/doorPrizeKecil/tumbler.png");
         break;
