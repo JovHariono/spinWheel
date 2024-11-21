@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import componentSpin from "@/../public/assets/components/spinImg.png";
-import congratz from "@/../public/assets/congratz.png";
+// import congratz from "@/../public/assets/congratz.png";
 import axios from "axios";
 import Image from "next/image";
 import { Button } from "react-bootstrap";
@@ -120,9 +120,9 @@ export default function SpinWheel() {
       setShowBtn(false);
       let next = randomNext();
       setTimeout(() => {
-        var bjir = document.getElementById("bjir");
+        let bjir = document.getElementById("bjir");
         bjir?.classList.add("lineUp");
-        var bjir2 = document.getElementById("bjir2");
+        let bjir2 = document.getElementById("bjir2");
         bjir2?.classList.add("lineUp2");
         setChoosen(next);
         setChoosen2({ id: 0, nama: "" });
