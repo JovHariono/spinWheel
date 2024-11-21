@@ -10,11 +10,12 @@ export interface Struct {
 
 export default function ListAll() {
   const [data, setData] = useState<Struct[]>([]);
+  const [dataAll, setDataAll] = useState<Struct[]>([]);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [itemsToShow, setItemsToShow] = useState(15);
 
   const handleShowMore = () => {
-    setItemsToShow((prev) => prev + 30); // Increase the limit by 30
+    setItemsToShow((prev) => prev + 30);
   };
 
   useEffect(() => {
@@ -22,7 +23,8 @@ export default function ListAll() {
       axios
         .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
         .then((res) => {
-          setData(res.data)})
+          setData(res.data);
+        })
         .catch((err) => console.log(err));
       setIsLoaded(true);
 
@@ -33,27 +35,46 @@ export default function ListAll() {
           .catch((err) => console.log(err));
       }, 5000);
     }
+
+    if (!isLoaded) {
+      axios
+        .get(`https://sodfestival.store/api/data1`)
+        .then((res) => {
+          setDataAll(res.data);
+        })
+        .catch((err) => console.log(err));
+      setIsLoaded(true);
+
+      setInterval(() => {
+        axios
+          .get(`https://sodfestival.store/api/data1`)
+          .then((res) => setDataAll(res.data))
+          .catch((err) => console.log(err));
+      }, 5000);
+    }
   }, [isLoaded]);
 
-  const handleDeleteAll = () => {
+  // console.log(dataAll)
+
+  const handleDeleteAll = (req: "data1" | "data2") => {
     const deleteKataAll = window.confirm("Are you sure want to delete all?");
 
     if (deleteKataAll) {
       data.forEach((data) => {
         axios
-          .delete(`https://sodfestival.store/api/data2/${data.id}`)
+          .delete(`https://sodfestival.store/api/${req}/${data.id}`)
           .catch((err) => console.log(err));
       });
       alert("berhasil delete data");
     }
   };
 
-  const handleDelete = (id: number) => {
+  const handleDelete = (req: "data1" | "data2", id: number) => {
     const deleteKata = window.confirm("Are you sure want to delete?");
 
     if (deleteKata) {
       axios
-        .delete(`https://sodfestival.store/api/data2/${id}`)
+        .delete(`https://sodfestival.store/api/${req}/${id}`)
         .catch((err) => console.log(err));
     }
   };
@@ -73,7 +94,9 @@ export default function ListAll() {
         <div className="row">
           <div className="list-holder">
             <h2>Winners</h2>
-            <button onClick={() => handleDeleteAll()}>Delete All Data</button>
+            <button onClick={() => handleDeleteAll("data2")}>
+              Delete All Data
+            </button>
             <div
               style={{
                 display: "flex",
@@ -82,16 +105,16 @@ export default function ListAll() {
                 paddingTop: "1rem",
               }}
             >
-              {data.slice(0, itemsToShow).map((data) => (
+              {data.slice(0, itemsToShow).map((data) => (                
                 <div
                   style={{ display: "flex", gap: "1rem" }}
                   className="data-item"
                   key={String(data.id)}
-                >
+                >                  
                   {data.nama}
                   <button
                     // style={{ float: "right" }}
-                    onClick={() => handleDelete(data.id)}
+                    onClick={() => handleDelete("data2", data.id)}
                   >
                     Delete
                   </button>
@@ -100,6 +123,42 @@ export default function ListAll() {
               {itemsToShow < data.length && (
                 <button onClick={handleShowMore}>Load More</button>
               )}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="container">
+        <h1>All List</h1>
+        <div className="row">
+          <div className="list-holder">
+            <h2>Participant</h2>
+            <button onClick={() => handleDeleteAll("data1")}>
+              Delete All Data
+            </button>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "1rem",
+                paddingTop: "1rem",
+              }}
+            > 
+              {dataAll.map((data) => (
+                <div
+                  style={{ display: "flex", gap: "1rem" }}
+                  className="data-item"
+                  key={String(data.id)}
+                >
+                  {data.id} - {data.nama}
+                  <button
+                    // style={{ float: "right" }}
+                    onClick={() => handleDelete("data1", data.id)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </div>
