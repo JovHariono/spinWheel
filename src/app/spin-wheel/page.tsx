@@ -30,7 +30,7 @@ export default function SpinWheel() {
   const [winners, setWinners] = useState<Struct[]>([]);
   const [showCongratz, setShowCongratz] = useState<boolean>(false);
   const [showWinners, setShowWinners] = useState(false);
-  const audioRef = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const playAudio = () => {
     if (audioRef?.current) {
