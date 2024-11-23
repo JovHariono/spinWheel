@@ -122,76 +122,389 @@ export default function SpinWheel() {
       setTimeout(() => {
         let bjir = document.getElementById("bjir");
         bjir?.classList.add("lineUp");
-        let bjir2 = document.getElementById("bjir2");
-        bjir2?.classList.add("lineUp2");
         setChoosen(next);
-        setChoosen2({ id: 0, nama: "" });
-        let next2 = next;
         next = randomNext();
         setTimeout(() => {
           setChoosen(next);
-          setChoosen2(next2);
-          next2 = next;
           next = randomNext();
           setTimeout(() => {
             setChoosen(next);
-            setChoosen2(next2);
-            next2 = next;
             next = randomNext();
             setTimeout(() => {
               setChoosen(next);
-              setChoosen2(next2);
-              next2 = next;
               next = randomNext();
               setTimeout(() => {
                 setChoosen(next);
-                setChoosen2(next2);
-                next2 = next;
                 next = randomNext();
                 setTimeout(() => {
                   setChoosen(next);
-                  setChoosen2(next2);
-                  next2 = next;
                   next = randomNext();
                   setTimeout(() => {
                     setChoosen(next);
-                    setChoosen2(next2);
+                    next = randomNext();
                     setTimeout(() => {
-                      setChoosen2({ id: 0, nama: "" });
-                      bjir = document.getElementById("bjir");
-                      bjir?.classList.remove("lineUp");
-                      bjir2 = document.getElementById("bjir2");
-                      bjir2?.classList.remove("lineUp2");
-                      setWinners((oldArray) => [...oldArray, next]);
-                      axios
-                        .post(
-                          "https://sodfestival.store/api/data2",
-                          {
-                            nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
-                          },
-                          {
-                            headers: { "Content-Type": "application/json" },
-                          }
-                        )
-                        .then(() => {
-                          axios.delete(
-                            `https://sodfestival.store/api/data1/${next.id}`
-                          );
-                        });
-                    }, 1000);
+                      setChoosen(next);
+                      next = randomNext();
+                      setTimeout(() => {
+                        setChoosen(next);
+                        next = randomNext();
+                        setTimeout(() => {
+                          setChoosen(next);
+                          next = randomNext();
+                          setTimeout(() => {
+                            setChoosen(next);
+                            next = randomNext();
+                            setTimeout(() => {
+                              setChoosen(next);
+                              next = randomNext();
+                              setTimeout(() => {
+                                setChoosen(next);
+                                next = randomNext();
+                                setTimeout(() => {
+                                  setChoosen(next);
+                                  next = randomNext();
+                                  setTimeout(() => {
+                                    setChoosen(next);
+                                    next = randomNext();
+                                    setTimeout(() => {
+                                      setChoosen(next);
+                                      next = randomNext();
+                                      setTimeout(() => {
+                                        setChoosen(next);
+                                        next = randomNext();
+                                        setTimeout(() => {
+                                          setChoosen(next);
+                                          next = randomNext();
+                                          setTimeout(() => {
+                                            setChoosen(next);
+                                            next = randomNext();
+                                            setTimeout(() => {
+                                              setChoosen(next);
+                                              next = randomNext();
+                                              setTimeout(() => {
+                                                setChoosen(next);
+                                                next = randomNext();
+                                                setTimeout(() => {
+                                                  setChoosen(next);
+                                                  next = randomNext();
+                                                  setTimeout(() => {
+                                                    setChoosen(next);
+                                                    next = randomNext();
+                                                    setTimeout(() => {
+                                                      setChoosen(next);
+                                                      next = randomNext();
+                                                      setTimeout(() => {
+                                                        setChoosen(next);
+                                                        next = randomNext();
+                                                        setTimeout(() => {
+                                                          setChoosen(next);
+                                                          next = randomNext();
+                                                          setTimeout(() => {
+                                                            setChoosen(next);
+                                                            next = randomNext();
+                                                            setTimeout(() => {
+                                                              setChoosen(next);
+                                                              next = randomNext();
+                                                              setTimeout(() => {
+                                                                setChoosen(next);
+                                                                next = randomNext();
+                                                                setTimeout(() => {
+                                                                  setChoosen(next);
+                                                                  next = randomNext();
+                                                                  setTimeout(() => {
+                                                                    setChoosen(next);
+                                                                    next = randomNext();
+                                                                    setTimeout(() => {
+                                                                      setChoosen(next);
+                                                                      next = randomNext();
+                                                                      setTimeout(() => {
+                                                                        setChoosen(next);
+                                                                        next = randomNext();
+                                                                        setTimeout(() => {
+                                                                          setChoosen(next);
+                                                                          next = randomNext();
+                                                                          setTimeout(() => {
+                                                                            setChoosen(next);
+                                                                            next = randomNext();
+                                                                            setTimeout(() => {
+                                                                              setChoosen(next);
+                                                                              next = randomNext();
+                                                                              setTimeout(() => {
+                                                                                setChoosen(next);
+                                                                                next = randomNext();
+                                                                                setTimeout(() => {
+                                                                                  setChoosen(next);
+                                                                                  next = randomNext();
+                                                                                  setTimeout(() => {
+                                                                                    setChoosen(next);
+                                                                                    next = randomNext();
+                                                                                    setTimeout(() => {
+                                                                                      setChoosen(next);
+                                                                                      next = randomNext();
+                                                                                      setTimeout(() => {
+                                                                                        setChoosen(next);
+                                                                                        next = randomNext();
+                                                                                        setTimeout(() => {
+                                                                                          setChoosen(next);
+                                                                                          next = randomNext();
+                                                                                          setTimeout(() => {
+                                                                                            setChoosen(next);
+                                                                                            next = randomNext();
+                                                                                            setTimeout(() => {
+                                                                                              setChoosen(next);
+                                                                                              setTimeout(() => {
+                                                                                                bjir = document.getElementById("bjir");
+                                                                                                bjir?.classList.remove("lineUp");
+                                                                                                setWinners((oldArray) => [...oldArray, next]);
+                                                                                                axios
+                                                                                                  .post(
+                                                                                                    "https://sodfestival.store/api/data2",
+                                                                                                    {
+                                                                                                      nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
+                                                                                                    },
+                                                                                                    {
+                                                                                                      headers: { "Content-Type": "application/json" },
+                                                                                                    }
+                                                                                                  )
+                                                                                                  .then(() => {
+                                                                                                    // axios.delete(
+                                                                                                    //   `https://sodfestival.store/api/data1/${next.id}`
+                                                                                                    // );
+                                                                                                  });
+                                                                                              }, 1000);
+                                                                                              setTimeout(() => {
+                                                                                                setShowBtn(true);
+                                                                                                setShowWinners(true);
+                                                                                                setShowCongratz(true);
+                                                                                                spin(count + 1);
+                                                                                              }, 2500);
+                                                                                            }, 250);
+                                                                                          }, 250);
+                                                                                        }, 250);
+                                                                                      }, 250);
+                                                                                    }, 250);
+                                                                                  }, 250);
+                                                                                }, 250);
+                                                                              }, 250);
+                                                                            }, 250);
+                                                                          }, 250);
+                                                                        }, 250);
+                                                                      }, 250);
+                                                                    }, 250);
+                                                                  }, 250);
+                                                                }, 250);
+                                                              }, 250);
+                                                            }, 250);
+                                                          }, 250);
+                                                        }, 250);
+                                                      }, 250);
+                                                    }, 250);
+                                                  }, 250);
+                                                }, 250);
+                                              }, 250);
+                                            }, 250);
+                                          }, 250);
+                                        }, 250);
+                                      }, 250);
+                                    }, 250);
+                                  }, 250);
+                                }, 250);
+                              }, 250);
+                            }, 250);
+                          }, 250);
+                        }, 250);
+                      }, 250);
+                    }, 250);
+                  }, 250);
+                }, 250);
+              }, 250);
+            }, 250);
+          }, 250);
+        }, 250);
+      }, 250);
+
+      setTimeout(() => {
+        let bjir2 = document.getElementById("bjir2");
+        bjir2?.classList.add("lineUp");
+        setChoosen2(next);
+        next = randomNext();
+        setTimeout(() => {
+          setChoosen2(next);
+          next = randomNext();
+          setTimeout(() => {
+            setChoosen2(next);
+            next = randomNext();
+            setTimeout(() => {
+              setChoosen2(next);
+              next = randomNext();
+              setTimeout(() => {
+                setChoosen2(next);
+                next = randomNext();
+                setTimeout(() => {
+                  setChoosen2(next);
+                  next = randomNext();
+                  setTimeout(() => {
+                    setChoosen2(next);
+                    next = randomNext();
                     setTimeout(() => {
-                      setShowBtn(true);
-                      setShowWinners(true);
-                      setShowCongratz(true);
-                      spin(count + 1);
-                    }, 3000);
-                  }, 1000);
-                }, 1000);
-              }, 1000);
-            }, 1000);
-          }, 1000);
-        }, 1000);
-      }, 1000);
+                      setChoosen2(next);
+                      next = randomNext();
+                      setTimeout(() => {
+                        setChoosen2(next);
+                        next = randomNext();
+                        setTimeout(() => {
+                          setChoosen2(next);
+                          next = randomNext();
+                          setTimeout(() => {
+                            setChoosen2(next);
+                            next = randomNext();
+                            setTimeout(() => {
+                              setChoosen2(next);
+                              next = randomNext();
+                              setTimeout(() => {
+                                setChoosen2(next);
+                                next = randomNext();
+                                setTimeout(() => {
+                                  setChoosen2(next);
+                                  next = randomNext();
+                                  setTimeout(() => {
+                                    setChoosen2(next);
+                                    next = randomNext();
+                                    setTimeout(() => {
+                                      setChoosen2(next);
+                                      next = randomNext();
+                                      setTimeout(() => {
+                                        setChoosen2(next);
+                                        next = randomNext();
+                                        setTimeout(() => {
+                                          setChoosen2(next);
+                                          next = randomNext();
+                                          setTimeout(() => {
+                                            setChoosen2(next);
+                                            next = randomNext();
+                                            setTimeout(() => {
+                                              setChoosen2(next);
+                                              next = randomNext();
+                                              setTimeout(() => {
+                                                setChoosen2(next);
+                                                next = randomNext();
+                                                setTimeout(() => {
+                                                  setChoosen2(next);
+                                                  next = randomNext();
+                                                  setTimeout(() => {
+                                                    setChoosen2(next);
+                                                    next = randomNext();
+                                                    setTimeout(() => {
+                                                      setChoosen2(next);
+                                                      next = randomNext();
+                                                      setTimeout(() => {
+                                                        setChoosen2(next);
+                                                        next = randomNext();
+                                                        setTimeout(() => {
+                                                          setChoosen2(next);
+                                                          next = randomNext();
+                                                          setTimeout(() => {
+                                                            setChoosen2(next);
+                                                            next = randomNext();
+                                                            setTimeout(() => {
+                                                              setChoosen2(next);
+                                                              next = randomNext();
+                                                              setTimeout(() => {
+                                                                setChoosen2(next);
+                                                                next = randomNext();
+                                                                setTimeout(() => {
+                                                                  setChoosen2(next);
+                                                                  next = randomNext();
+                                                                  setTimeout(() => {
+                                                                    setChoosen2(next);
+                                                                    next = randomNext();
+                                                                    setTimeout(() => {
+                                                                      setChoosen2(next);
+                                                                      next = randomNext();
+                                                                      setTimeout(() => {
+                                                                        setChoosen2(next);
+                                                                        next = randomNext();
+                                                                        setTimeout(() => {
+                                                                          setChoosen2(next);
+                                                                          next = randomNext();
+                                                                          setTimeout(() => {
+                                                                            setChoosen2(next);
+                                                                            next = randomNext();
+                                                                            setTimeout(() => {
+                                                                              setChoosen2(next);
+                                                                              next = randomNext();
+                                                                              setTimeout(() => {
+                                                                                setChoosen2(next);
+                                                                                next = randomNext();
+                                                                                setTimeout(() => {
+                                                                                  setChoosen2(next);
+                                                                                  next = randomNext();
+                                                                                  setTimeout(() => {
+                                                                                    setChoosen2(next);
+                                                                                    next = randomNext();
+                                                                                    setTimeout(() => {
+                                                                                      setChoosen2(next);
+                                                                                      next = randomNext();
+                                                                                      setTimeout(() => {
+                                                                                        setChoosen2(next);
+                                                                                        next = randomNext();
+                                                                                        setTimeout(() => {
+                                                                                          setChoosen2(next);
+                                                                                          next = randomNext();
+                                                                                          setTimeout(() => {
+                                                                                            setChoosen2(next);
+                                                                                            next = randomNext();
+                                                                                            setTimeout(() => {
+                                                                                              setChoosen2(next);
+                                                                                              setTimeout(() => {
+                                                                                                setChoosen2({ id: 0, nama: "" });
+                                                                                                bjir2 = document.getElementById("bjir2");
+                                                                                                bjir2?.classList.remove("lineUp");
+                                                                                              }, 1000);
+                                                                                            }, 250);
+                                                                                          }, 250);
+                                                                                        }, 250);
+                                                                                      }, 250);
+                                                                                    }, 250);
+                                                                                  }, 250);
+                                                                                }, 250);
+                                                                              }, 250);
+                                                                            }, 250);
+                                                                          }, 250);
+                                                                        }, 250);
+                                                                      }, 250);
+                                                                    }, 250);
+                                                                  }, 250);
+                                                                }, 250);
+                                                              }, 250);
+                                                            }, 250);
+                                                          }, 250);
+                                                        }, 250);
+                                                      }, 250);
+                                                    }, 250);
+                                                  }, 250);
+                                                }, 250);
+                                              }, 250);
+                                            }, 250);
+                                          }, 250);
+                                        }, 250);
+                                      }, 250);
+                                    }, 250);
+                                  }, 250);
+                                }, 250);
+                              }, 250);
+                            }, 250);
+                          }, 250);
+                        }, 250);
+                      }, 250);
+                    }, 250);
+                  }, 250);
+                }, 250);
+              }, 250);
+            }, 250);
+          }, 250);
+        }, 250);
+      }, 375);
     } else {
       if (!isLoaded) {
         axios

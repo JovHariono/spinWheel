@@ -148,6 +148,7 @@ main {
   box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 9px 8px 5px -4px rgba(0, 0, 0, 0.75);
+  overflow: hidden;
 }
 
 .textAreaB {
@@ -222,7 +223,7 @@ main {
 }
 
 .lineUp {
-  animation: 1s anim-lineUp ease-out infinite;
+  animation: 0.25s anim-lineUp ease-out infinite;
   position: absolute;
   top: auto;
   left: auto;
@@ -231,61 +232,16 @@ main {
 @keyframes anim-lineUp {
   0% {
     opacity: 1;
-    transform: translateY(80%);
+    transform: translateY(100%);
   }
 
-  30% {
-    opacity: 1;
-    transform: translateY(60%);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateY(40%);
-  }
-
-  90% {
-    opacity: 1;
-    transform: translateY(20%);
-  }
-
-  100% {
+  50% {
     opacity: 1;
     transform: translateY(0%);
   }
-}
-
-.lineUp2 {
-  animation: 1s anim-lineUp2 ease-out infinite;
-}
-
-@keyframes anim-lineUp2 {
-  0% {
-    opacity: 0;
-  }
-
-  5% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  30% {
-    opacity: 1;
-    transform: translateY(-20%);
-  }
-
-  60% {
-    opacity: 1;
-    transform: translateY(-40%);
-  }
-
-  90% {
-    opacity: 1;
-    transform: translateY(-60%);
-  }
 
   100% {
     opacity: 1;
-    transform: translateY(-80%);
+    transform: translateY(-100%);
   }
 }
