@@ -270,9 +270,9 @@ export default function SpinWheel() {
                                                                                                     }
                                                                                                   )
                                                                                                   .then(() => {
-                                                                                                    // axios.delete(
-                                                                                                    //   `https://sodfestival.store/api/data1/${next.id}`
-                                                                                                    // );
+                                                                                                    axios.delete(
+                                                                                                      `https://sodfestival.store/api/data1/${next.id}`
+                                                                                                    );
                                                                                                   });
                                                                                               }, 1000);
                                                                                               setTimeout(() => {
