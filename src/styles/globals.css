@@ -86,7 +86,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 85%;
+  width: 95%;
 }
 
 .containerTable table {
@@ -94,8 +94,9 @@ main {
   width: 100%;
   border: none;
   border-collapse: collapse;
-  font-size: 1.2rem;
+  font-size: 0.65rem;
   text-align: center;
+  font-weight: bold;
 }
 
 .containerTable table td,

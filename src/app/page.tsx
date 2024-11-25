@@ -48,7 +48,7 @@ const Home = () => {
       const cells = [];
       for (let j = 0; j < 10; j++) {
         const cellData = data[cellIndex] || { id: "", nama: "" };
-        cells.push(<td key={j}>{cellData.id ? `${cellData.nama}` : "-"}</td>);
+        cells.push(<td key={j}>{cellData.id ? `${cellData.nama}` : ""}</td>);
         cellIndex++;
       }
       rows.push(<tr key={i}>{cells}</tr>);
