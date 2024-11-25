@@ -577,7 +577,7 @@ export default function SpinWheel() {
 
           {showBtn && (
             <Button variant="link" onClick={() => spin(1)}>
-              <Image alt="" src={componentSpin} width={150} />
+              <Image alt="" src={componentSpin} width={300} />
             </Button>
           )}
         </div>
