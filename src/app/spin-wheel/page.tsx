@@ -87,6 +87,9 @@ export default function SpinWheel() {
     if (Number(formData.jumlahPemenang) > 0) {
       setShowBtn(true);
     }
+
+    setShowWinners(false);
+    setShowCongratz(false);
   }, [formData]);
 
   useEffect(() => {
