@@ -21,7 +21,7 @@ export default function ListAll() {
   useEffect(() => {
     if (!isLoaded) {
       axios
-        .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
+        .get(`https://sodgroup.online/api/data2?_sort=id&_order=desc`)
         .then((res) => {
           setData(res.data);
         })
@@ -30,7 +30,7 @@ export default function ListAll() {
 
       setInterval(() => {
         axios
-          .get(`https://sodfestival.store/api/data2?_sort=id&_order=desc`)
+          .get(`https://sodgroup.online/api/data2?_sort=id&_order=desc`)
           .then((res) => setData(res.data))
           .catch((err) => console.log(err));
       }, 5000);
@@ -38,7 +38,7 @@ export default function ListAll() {
 
     if (!isLoaded) {
       axios
-        .get(`https://sodfestival.store/api/data1`)
+        .get(`https://sodgroup.online/api/data1`)
         .then((res) => {
           setDataAll(res.data);
         })
@@ -47,7 +47,7 @@ export default function ListAll() {
 
       setInterval(() => {
         axios
-          .get(`https://sodfestival.store/api/data1`)
+          .get(`https://sodgroup.online/api/data1`)
           .then((res) => setDataAll(res.data))
           .catch((err) => console.log(err));
       }, 5000);
@@ -62,7 +62,7 @@ export default function ListAll() {
     if (deleteKataAll) {
       data.forEach((data) => {
         axios
-          .delete(`https://sodfestival.store/api/${req}/${data.id}`)
+          .delete(`https://sodgroup.online/api/${req}/${data.id}`)
           .catch((err) => console.log(err));
       });
       alert("berhasil delete data");
@@ -74,7 +74,7 @@ export default function ListAll() {
 
     if (deleteKata) {
       axios
-        .delete(`https://sodfestival.store/api/${req}/${id}`)
+        .delete(`https://sodgroup.online/api/${req}/${id}`)
         .catch((err) => console.log(err));
     }
   };
