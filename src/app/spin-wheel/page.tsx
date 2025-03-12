@@ -79,7 +79,7 @@ export default function SpinWheel() {
   useEffect(() => {
     if (!isLoaded) {
       axios
-        .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
+        .get(`https://sodgroup.online/api/data1?_sort=id&_order=asc`)
         .then((res) => {
           setData(res.data);
           setIsLoaded(true);
@@ -245,7 +245,7 @@ export default function SpinWheel() {
                                                                                                 setWinners((oldArray) => [...oldArray, next]);
                                                                                                 axios
                                                                                                   .post(
-                                                                                                    "https://sodfestival.store/api/data2",
+                                                                                                    "https://sodgroup.online/api/data2",
                                                                                                     {
                                                                                                       nama: `${next.id} - ${next.nama} - ${formData.hadiah}`,
                                                                                                     },
@@ -255,7 +255,7 @@ export default function SpinWheel() {
                                                                                                   )
                                                                                                   .then(() => {
                                                                                                     axios.delete(
-                                                                                                      `https://sodfestival.store/api/data1/${next.id}`
+                                                                                                      `https://sodgroup.online/api/data1/${next.id}`
                                                                                                     );
                                                                                                   });
                                                                                               }, 1000);
@@ -495,7 +495,7 @@ export default function SpinWheel() {
     } else {
       if (!isLoaded) {
         axios
-          .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
+          .get(`https://sodgroup.online/api/data1?_sort=id&_order=asc`)
           .then((res) => {
             setData(res.data);
             setIsLoaded(true);

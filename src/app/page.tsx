@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     if (!isLoaded) {
       axios
-        .get(`https://sodfestival.store/api/data1?_sort=id&_order=asc`)
+        .get(`https://sodgroup.online/api/data1?_sort=id&_order=asc`)
         // .get(`http://localhost:3001/data1?_sort=id&_order=asc`)
         .then((res) => {
           setData(res.data);
