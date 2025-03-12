@@ -20,7 +20,7 @@ export default function SpinWheel() {
     hadiah: "",
   });
 
-  const [image, setImage] = useState("/assets/components/logoParagon.png");
+  const [image, setImage] = useState("/assets/doorPrizeAstra/awalDoorprize.png");
   const [showBtn, setShowBtn] = useState<boolean>(false);
 
   const [choosen, setChoosen] = useState<Struct>();
@@ -39,48 +39,32 @@ export default function SpinWheel() {
   };
 
   useEffect(() => {
-    switch (formData.hadiah) {
-      // case "Headphone":
-      //   setImage("/assets/doorPrizeKecil/headphone.png");
-      //   break;
-      case "Emas Antam 0.5gr":
-        setImage("/assets/doorPrizeKecil/emasAntam.png");
+    switch (formData.hadiah) {      
+
+      case "Galaxy Tab":
+        setImage("/assets/doorPrizeAstra/Tab.png");
         break;
-      case "Kompor Listrik":
-        setImage("/assets/doorPrizeKecil/komporListrik.png");
+      case "Galaxy A05s":
+        setImage("/assets/doorPrizeAstra/Hp.png");
         break;
-      case "Rice Cooker":
-        setImage("/assets/doorPrizeKecil/riceCooker.png");
+      case "Logam Mulia 1gr":
+        setImage("/assets/doorPrizeAstra/Emas.png");
         break;
-      // case "Air Fryer - Kecil":
-      //   setImage("/assets/doorPrizeKecil/airFryer.png");
-      //   break;
-      case "Tumbler":
-        setImage("/assets/doorPrizeKecil/tumbler.png");
+      case "Bank Saqu g":
+        setImage("/assets/doorPrizeAstra/bankSaquB.png");
         break;
-      case "Handphone":
-        setImage("/assets/doorPrizeBesar/handphone.png");
+      case "Astra Pay g":
+        setImage("/assets/doorPrizeAstra/astraPayB.png");
         break;
-      case "Mesin Cuci":
-        setImage("/assets/doorPrizeBesar/mesinCuci.png");
+        case "Bank Saqu k":
+        setImage("/assets/doorPrizeAstra/bankSaquK.png");
         break;
-      case "TV 32inch":
-        setImage("/assets/doorPrizeBesar/tv.png");
+      case "Astra Pay k":
+        setImage("/assets/doorPrizeAstra/astraPayK.png");
         break;
-      case "Emas Antam 1gr":
-        setImage("/assets/doorPrizeBesar/emasAntam1.png");
-        break;
-      case "Air Cooler":
-        setImage("/assets/doorPrizeBesar/airCooler.png");
-        break;
-      case "Air Fryer":
-        setImage("/assets/doorPrizeBesar/airFryer.png");
-        break;
-      case "Sepeda Lipat":
-        setImage("/assets/doorPrizeBesar/sepedaLipat.png");
-        break;
+
       default:
-        setImage("/assets/components/logoParagon.png");
+        setImage("/assets/doorPrizeAstra/awalDoorprize.png");
         break;
     }
 

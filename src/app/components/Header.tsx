@@ -72,40 +72,30 @@ const Header: React.FunctionComponent<HeaderProps> = ({
                   Open this select menu
                 </option>
                 {/* <option key={1} value="Headphone">Headphone</option> */}
-                <option key={1} value="Tumbler">
+                {/* <option key={1} value="Tumbler">
                   Mini Grand Prize - Tumbler
+                </option> */}
+                <option key={1} value="Galaxy Tab">
+                  Galaxy Tab
                 </option>
-                <option key={2} value="Rice Cooker">
-                  Mini Grand Prize - Rice Cooker
+                <option key={2} value="Galaxy A05s">
+                  Galaxy A05s
                 </option>
-                <option key={3} value="Kompor Listrik">
-                  Mini Grand Prize - Kompor Listrik
+                <option key={3} value="Logam Mulia 1gr">
+                Logam Mulia 1gr
                 </option>
-                <option key={4} value="Emas Antam 0.5gr">
-                  Mini Grand Prize - Emas Antam 0.5gr
+                <option key={4} value="Bank Saqu g">
+                  Bank Saqu Rp. 200.000
                 </option>
-                <option key={5} value="Air Fryer">
-                  Mini Grand Prize - Air Fryer
+                <option key={5} value="Astra Pay g">
+                  Astra Pay Rp. 200.000
                 </option>
-
-                <option key={6} value="Air Cooler">
-                  Grand Prize - Air Cooler
+                <option key={6} value="Bank Saqu k">
+                Bank Saqu Rp. 100.000
                 </option>
-                <option key={7} value="Emas Antam 1gr">
-                  Grand Prize - Emas Antam 1gr
-                </option>
-                <option key={8} value="Sepeda Lipat">
-                  Grand Prize - Sepeda Lipat
-                </option>
-                <option key={9} value="TV 32inch">
-                  Grand Prize - TV 32inch
-                </option>
-                <option key={10} value="Mesin Cuci">
-                  Grand Prize - Mesin Cuci
-                </option>
-                <option key={111} value="Handphone">
-                  Grand Prize - Handphone
-                </option>
+                <option key={7} value="Astra Pay k">
+                Astra Pay Rp. 100.000
+                </option>              
                 {/* <option key={12} value="Air Fryer">Air Fryer</option> */}
               </Form.Select>
             </Form.Group>

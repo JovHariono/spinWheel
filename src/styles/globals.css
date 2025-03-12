@@ -58,7 +58,7 @@ main {
   align-items: center;
   position: relative;
 
-  background-image: url("../../public/assets/components/mainBg.png");
+  background-image: url("../../public/assets/components/bg3.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -81,12 +81,12 @@ main {
 }
 
 .containerTable {
-  padding-top: 7rem;
+  padding-top: 17rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 95%;
+  width: 100%;  
 }
 
 .containerTable table {
@@ -97,6 +97,7 @@ main {
   font-size: 0.65rem;
   text-align: center;
   font-weight: bold;
+  margin: 0;
 }
 
 .containerTable table td,
@@ -104,6 +105,7 @@ main {
   border: none;
   padding: 8px;
   background-color: #75a1ff;
+  margin: 0;
 }
 
 /* spin-wheel */
@@ -118,7 +120,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  padding-top: 7rem;
+  padding-top: 13rem;
   width: 100%;
 }
 
